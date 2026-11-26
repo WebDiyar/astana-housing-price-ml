@@ -19,8 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-The licence above covers the source code only. The listing dataset in
-data/raw/astana_apartments.csv is distributed under CC0 by its author
-(Kaggle, "Astana Real Estate 2025"). OpenStreetMap data in data/raw/osm/ and
-the features derived from it are (c) OpenStreetMap contributors, ODbL 1.0.

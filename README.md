@@ -27,7 +27,7 @@
 | Прототип оценки одной квартиры (функция и командная строка) | [`predict.py`](predict.py) |
 | Автотесты, 42 шт. | [`tests/`](tests) |
 | Исходные и обработанные данные с описанием | [`data/`](data), [`data/README.md`](data/README.md) |
-| Таблицы результатов (CSV, JSON), 51 файл | [`results/`](results) |
+| Таблицы результатов (CSV, JSON), 52 файла | [`results/`](results) |
 | Рисунки, 18 шт., PNG 250 dpi | [`figures/`](figures) |
 | Обученная модель | [`models/price_model.joblib`](models/price_model.joblib) |
 
@@ -194,6 +194,9 @@ predict({"area": 62, "rooms": 2, "year_built": 2019, "latitude": 51.1283, "longi
 ## Воспроизводимость
 
 - Seed 42 задан в `src/config.py` и используется во всех разбиениях, моделях и перемешиваниях.
+- Контрольный запуск блокнота на свежем клоне без кэша (27.11.2026) воспроизвёл все таблицы результатов:
+  относительные расхождения не превышают 2,2e-13, отличаются только замеры времени
+  ([`results/reproduction_check.json`](results/reproduction_check.json)).
 - Версии расчёта: Python 3.13.2, numpy 2.5.3, pandas 3.0.6, scikit-learn 1.9.1, scipy 1.18.1, catboost 1.2.10,
   shap 0.54.1 — они же в `requirements-lock.txt`. Автотесты проходят и на Python 3.12 с numpy 2.0.2,
   pandas 2.2.2, scikit-learn 1.6.1.

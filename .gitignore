@@ -1,0 +1,12 @@
+# кэш тяжёлых шагов блокнота: пересчитывается при запуске
+data/processed/cache/
+
+# рабочие заметки автора
+РЕЗУЛЬТАТЫ.md
+
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+catboost_info/
+.venv/
+.DS_Store

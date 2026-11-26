@@ -1,0 +1,81 @@
+{
+ "license": "© участники OpenStreetMap, ODbL 1.0 — https://www.openstreetmap.org/copyright",
+ "bbox_s_w_n_e": [
+  50.95,
+  71.15,
+  51.35,
+  71.75
+ ],
+ "requests": {
+  "osm_poi": {
+   "file": "osm_poi.json",
+   "query": "[out:json][timeout:240][bbox:50.95,71.15,51.35,71.75];(nwr[\"amenity\"~\"^(school|kindergarten|hospital|clinic|university|college|pharmacy|restaurant|cafe|fast_food)$\"];nwr[\"shop\"~\"^(mall|supermarket)$\"];node[\"highway\"=\"bus_stop\"];);out tags center;",
+   "endpoint": "https://overpass-api.de/api/interpreter",
+   "requested_at_utc": "2026-11-26T16:44:51Z",
+   "osm_base": "2026-11-26T16:42:48Z",
+   "elements": 2729,
+   "bytes": 727991,
+   "sha256": "bf28c7cc7f8528cd481bb51b4e89d5f39699ebe32f00dcdb26cb8da1cec6b9e7"
+  },
+  "osm_geometry": {
+   "file": "osm_geometry.json",
+   "query": "[out:json][timeout:240][bbox:50.95,71.15,51.35,71.75];(way[\"leisure\"=\"park\"];relation[\"leisure\"=\"park\"];way[\"waterway\"=\"river\"];relation[\"boundary\"=\"administrative\"][\"admin_level\"=\"6\"];);out body geom;",
+   "endpoint": "https://overpass-api.de/api/interpreter",
+   "requested_at_utc": "2026-11-26T16:48:10Z",
+   "osm_base": "2026-11-26T16:46:53Z",
+   "elements": 231,
+   "bytes": 954539,
+   "sha256": "d17a7831913e19df5131b3eede1204d120848b37d46e130e4976a0a35e814e1e"
+  }
+ },
+ "layers": {
+  "school": {
+   "title": "школы",
+   "elements": 175
+  },
+  "kindergarten": {
+   "title": "детские сады",
+   "elements": 146
+  },
+  "healthcare": {
+   "title": "больницы и поликлиники",
+   "elements": 104
+  },
+  "university": {
+   "title": "вузы и колледжи",
+   "elements": 44
+  },
+  "mall": {
+   "title": "торговые центры",
+   "elements": 58
+  },
+  "supermarket": {
+   "title": "супермаркеты",
+   "elements": 171
+  },
+  "pharmacy": {
+   "title": "аптеки",
+   "elements": 194
+  },
+  "food": {
+   "title": "кафе и рестораны",
+   "elements": 707
+  },
+  "bus_stop": {
+   "title": "остановки общественного транспорта",
+   "elements": 1130
+  },
+  "park": {
+   "title": "парки",
+   "elements": 130
+  },
+  "river": {
+   "title": "реки",
+   "elements": 91
+  },
+  "districts": {
+   "title": "административные границы 6-го уровня",
+   "elements": 10
+  }
+ }
+}

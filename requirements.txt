@@ -1,0 +1,13 @@
+# Минимальные версии, на которых проходят автотесты (Python 3.12 и 3.13).
+# Точные версии расчёта — в requirements-lock.txt.
+numpy>=2.0.2
+pandas>=2.2.2
+scikit-learn>=1.6.1
+scipy>=1.15
+matplotlib>=3.10
+joblib>=1.5
+threadpoolctl>=3.5
+catboost>=1.2.10
+shap>=0.54
+ipykernel
+nbconvert

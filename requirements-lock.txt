@@ -1,0 +1,12 @@
+# Версии, на которых получены числа в results/ (Python 3.13.2, macOS arm64, 26.11.2026).
+numpy==2.5.3
+pandas==3.0.6
+scikit-learn==1.9.1
+scipy==1.18.1
+matplotlib==3.11.2
+joblib==1.6.0
+threadpoolctl==3.7.0
+catboost==1.2.10
+shap==0.54.1
+ipykernel==7.4.0
+nbconvert==7.17.1

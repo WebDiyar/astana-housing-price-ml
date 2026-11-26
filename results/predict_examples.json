@@ -1,0 +1,216 @@
+{
+ "2-комн. в новом монолитном доме у «Байтерека»": {
+  "input": {
+   "area": 62,
+   "rooms": 2,
+   "floor": 7,
+   "total_floors": 12,
+   "year_built": 2019,
+   "house_type": "монолитный",
+   "latitude": 51.1283,
+   "longitude": 71.4305
+  },
+  "output": {
+   "price": 54192000.0,
+   "price_per_m2": 874100.0,
+   "interval_80": [
+    47175000.0,
+    63110000.0
+   ],
+   "interval_90": [
+    45156000.0,
+    66911000.0
+   ],
+   "base_price": 39194000.0,
+   "model": "full",
+   "feature_set": "E",
+   "district": "Есиль",
+   "test_MAPE_%": 9.29,
+   "factors": [
+    {
+     "feature": "dist_center_km",
+     "label": "До центра, км",
+     "value": 0.0,
+     "effect_%": 18.6
+    },
+    {
+     "feature": "year_built",
+     "label": "Год постройки",
+     "value": 2019.0,
+     "effect_%": 9.3
+    },
+    {
+     "feature": "district",
+     "label": "Район",
+     "value": "Есиль",
+     "effect_%": 8.4
+    },
+    {
+     "feature": "area",
+     "label": "Площадь",
+     "value": 62.0,
+     "effect_%": -6.9
+    },
+    {
+     "feature": "n_food_1km",
+     "label": "Кафе в 1 км",
+     "value": 64.0,
+     "effect_%": 6.3
+    }
+   ],
+   "warnings": [
+    "поле «ceiling_height» не задано — модель использует его как пропуск",
+    "поле «kitchen_area» не задано — модель использует его как пропуск"
+   ]
+  }
+ },
+ "1-комн. в панельном доме 1985 г., известен только район": {
+  "input": {
+   "area": 45,
+   "rooms": 1,
+   "floor": 3,
+   "total_floors": 5,
+   "year_built": 1985,
+   "house_type": "панельный",
+   "district": "Сарыарка"
+  },
+  "output": {
+   "price": 17534000.0,
+   "price_per_m2": 389600.0,
+   "interval_80": [
+    14357000.0,
+    21604000.0
+   ],
+   "interval_90": [
+    13451000.0,
+    23260000.0
+   ],
+   "base_price": 39194000.0,
+   "model": "district",
+   "feature_set": "B",
+   "district": "Сарыарка",
+   "test_MAPE_%": 12.97,
+   "factors": [
+    {
+     "feature": "area",
+     "label": "Площадь",
+     "value": 45.0,
+     "effect_%": -24.9
+    },
+    {
+     "feature": "year_built",
+     "label": "Год постройки",
+     "value": 1985.0,
+     "effect_%": -10.8
+    },
+    {
+     "feature": "rooms",
+     "label": "Комнат",
+     "value": 1.0,
+     "effect_%": -10.7
+    },
+    {
+     "feature": "district",
+     "label": "Район",
+     "value": "Сарыарка",
+     "effect_%": -8.1
+    },
+    {
+     "feature": "total_floors",
+     "label": "Этажность",
+     "value": 5.0,
+     "effect_%": -6.3
+    }
+   ],
+   "warnings": [
+    "координаты не заданы: использована модель «объектные признаки + район», её точность ниже",
+    "поле «ceiling_height» не задано — модель использует его как пропуск",
+    "поле «kitchen_area» не задано — модель использует его как пропуск"
+   ]
+  }
+ },
+ "3-комн. в строящемся доме, минимум сведений": {
+  "input": {
+   "area": 80,
+   "rooms": 3,
+   "year_built": 2026,
+   "district": "Нура"
+  },
+  "output": {
+   "price": 43667000.0,
+   "price_per_m2": 545800.0,
+   "interval_80": [
+    35755000.0,
+    53803000.0
+   ],
+   "interval_90": [
+    33500000.0,
+    57929000.0
+   ],
+   "base_price": 39194000.0,
+   "model": "district",
+   "feature_set": "B",
+   "district": "Нура",
+   "test_MAPE_%": 12.97,
+   "factors": [
+    {
+     "feature": "total_floors",
+     "label": "Этажность",
+     "value": null,
+     "effect_%": -9.2
+    },
+    {
+     "feature": "area",
+     "label": "Площадь",
+     "value": 80.0,
+     "effect_%": 9.8
+    },
+    {
+     "feature": "rooms",
+     "label": "Комнат",
+     "value": 3.0,
+     "effect_%": 6.5
+    },
+    {
+     "feature": "bathroom",
+     "label": "Санузел",
+     "value": "не указано",
+     "effect_%": 5.3
+    },
+    {
+     "feature": "under_construction",
+     "label": "Дом строится",
+     "value": 1.0,
+     "effect_%": -4.1
+    }
+   ],
+   "warnings": [
+    "координаты не заданы: использована модель «объектные признаки + район», её точность ниже",
+    "поле «floor» не задано — модель использует его как пропуск",
+    "поле «ceiling_height» не задано — модель использует его как пропуск",
+    "поле «kitchen_area» не задано — модель использует его как пропуск"
+   ]
+  }
+ },
+ "Некорректный ввод: этаж выше этажности": {
+  "input": {
+   "area": 62,
+   "rooms": 2,
+   "floor": 15,
+   "total_floors": 9,
+   "year_built": 2015,
+   "district": "Есиль"
+  },
+  "error": "этаж (15) больше этажности дома (9)"
+ },
+ "Некорректный ввод: точка вне Астаны": {
+  "input": {
+   "area": 62,
+   "rooms": 2,
+   "year_built": 2015,
+   "latitude": 43.24,
+   "longitude": 76.9
+  },
+  "error": "точка (43.24, 76.9) лежит вне границ районов Астаны"
+ }
+}

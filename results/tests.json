@@ -1,0 +1,14 @@
+{
+ "total": 42,
+ "passed": 42,
+ "failed": 0,
+ "errors": 0,
+ "skipped": 0,
+ "time_s": 14.0,
+ "per_module": {
+  "test_cleaning": 14,
+  "test_features": 11,
+  "test_models": 8,
+  "test_predict": 9
+ }
+}

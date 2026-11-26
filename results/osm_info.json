@@ -1,0 +1,53 @@
+{
+ "license": "© участники OpenStreetMap, ODbL 1.0 — https://www.openstreetmap.org/copyright",
+ "bbox_s_w_n_e": [
+  50.95,
+  71.15,
+  51.35,
+  71.75
+ ],
+ "center_baiterek": [
+  51.1283,
+  71.4305
+ ],
+ "requests": {
+  "osm_poi": {
+   "file": "osm_poi.json",
+   "query": "[out:json][timeout:240][bbox:50.95,71.15,51.35,71.75];(nwr[\"amenity\"~\"^(school|kindergarten|hospital|clinic|university|college|pharmacy|restaurant|cafe|fast_food)$\"];nwr[\"shop\"~\"^(mall|supermarket)$\"];node[\"highway\"=\"bus_stop\"];);out tags center;",
+   "endpoint": "https://overpass-api.de/api/interpreter",
+   "requested_at_utc": "2026-11-26T16:44:51Z",
+   "osm_base": "2026-11-26T16:42:48Z",
+   "elements": 2729,
+   "bytes": 727991,
+   "sha256": "bf28c7cc7f8528cd481bb51b4e89d5f39699ebe32f00dcdb26cb8da1cec6b9e7"
+  },
+  "osm_geometry": {
+   "file": "osm_geometry.json",
+   "query": "[out:json][timeout:240][bbox:50.95,71.15,51.35,71.75];(way[\"leisure\"=\"park\"];relation[\"leisure\"=\"park\"];way[\"waterway\"=\"river\"];relation[\"boundary\"=\"administrative\"][\"admin_level\"=\"6\"];);out body geom;",
+   "endpoint": "https://overpass-api.de/api/interpreter",
+   "requested_at_utc": "2026-11-26T16:48:10Z",
+   "osm_base": "2026-11-26T16:46:53Z",
+   "elements": 231,
+   "bytes": 954539,
+   "sha256": "d17a7831913e19df5131b3eede1204d120848b37d46e130e4976a0a35e814e1e"
+  }
+ },
+ "objects_received_total": 2960,
+ "poi_received": 2729,
+ "poi_used_in_features": 2714,
+ "parks_min_ha": 1.0,
+ "near_river_km": 0.5,
+ "radii_km": [
+  0.5,
+  1.0
+ ],
+ "geo_features": 33,
+ "district_area_km2": {
+  "Есиль": 192.88867950439453,
+  "Алматы": 92.62771362066269,
+  "Сарыарка": 67.2888011932373,
+  "Байконур": 182.08761529624462,
+  "Сарайшык": 60.92032718658447,
+  "Нура": 186.8822660446167
+ }
+}

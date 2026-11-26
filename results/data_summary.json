@@ -1,0 +1,82 @@
+{
+ "rows_raw": 18388,
+ "rows_clean": 16779,
+ "rows_removed": 1609,
+ "rows_removed_%": 8.75027191646726,
+ "rows_kept_%": 91.24972808353274,
+ "duplicates_exact": 1082,
+ "duplicates_same_object": 390,
+ "duplicates_total": 1472,
+ "duplicates_total_%": 8.005220796171416,
+ "outside_city": 43,
+ "outliers_removed": 94,
+ "under_construction": 1028,
+ "under_construction_%": 6.1267060015495565,
+ "district_agreement_%": 82.18197659945233,
+ "district_relabelled": 2863,
+ "district_filled": 711,
+ "unique_coordinates": 8499,
+ "unique_complexes": 1180,
+ "in_complex_%": 79.86173192681328,
+ "features_total": 65,
+ "features_object": 28,
+ "features_location": 3,
+ "features_geo": 33,
+ "map_view_share_%": 99.97020084629597,
+ "price_median_mln": 36.5,
+ "price_mean_mln": 47.54560399904643,
+ "ppm2_median_k": 600.0,
+ "ppm2_mean_k": 637.1493805586858,
+ "area_median": 63.1,
+ "year_median": 2021.0,
+ "district_ppm2_max_to_min": 1.5679285714285716,
+ "geo_features_time_s": 2.4116940420062747,
+ "center_distance": {
+  "spearman_rho_ppm2": -0.49313282265196495,
+  "spearman_p": 0.0,
+  "log_ppm2_slope_per_km": -0.07775885945065399,
+  "ppm2_change_per_km_%": -7.48125001315874,
+  "r2_linear_log_ppm2": 0.236111716111773,
+  "share_within_5km_%": 64.71184218368198,
+  "share_within_10km_%": 98.93319029739556,
+  "dist_center_median_km": 4.239577588201709
+ },
+ "bounds": {
+  "area": [
+   15.0,
+   300.0
+  ],
+  "rooms_max": 6,
+  "ppm2": [
+   200000,
+   2000000
+  ],
+  "ceiling": [
+   2.3,
+   5.0
+  ]
+ },
+ "split": {
+  "seed": 42,
+  "n_train": 13423,
+  "n_test": 3356,
+  "test_share_%": 20.00119196614816,
+  "cv_folds": 15,
+  "cv_n_splits": 5,
+  "cv_n_repeats": 3,
+  "cv_fold_test_mean": 2684.6,
+  "cv_fold_train_mean": 10738.4,
+  "spatial_cell_km": 2.0,
+  "spatial_cells": 69,
+  "spatial_folds": 5,
+  "spatial_folds_D_vs_E": 10,
+  "spatial_fold_test_min": 2684,
+  "spatial_fold_test_max": 2685,
+  "lodo_folds": 6,
+  "test_rows_with_house_in_train_%": 59.713945172824786,
+  "test_rows_new_house_%": 40.286054827175214,
+  "test_rows_new_house": 1352,
+  "train_price_median_mln": 36.5,
+  "test_price_median_mln": 36.0
+ }
+}

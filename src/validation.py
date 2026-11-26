@@ -6,7 +6,7 @@ import time
 import numpy as np
 import pandas as pd
 from joblib import Parallel, delayed
-from scipy import stats
+from scipy import optimize, stats
 from sklearn.model_selection import KFold, ParameterSampler, RepeatedKFold, train_test_split
 
 from .config import SEED, TARGET
@@ -29,15 +29,23 @@ def repeated_splits(n, n_splits=5, n_repeats=3, seed=SEED):
     return list(RepeatedKFold(n_splits=n_splits, n_repeats=n_repeats, random_state=seed).split(np.arange(n)))
 
 
-def spatial_cells(lat, lon, cell_km=CELL_KM):
-    """Номер пространственной ячейки cell_km × cell_km для каждой точки."""
-    i = np.floor(np.asarray(lat) * 110.57 / cell_km).astype(int)
-    k = np.floor(np.asarray(lon) * 111.32 * np.cos(np.radians(LAT0)) / cell_km).astype(int)
+def spatial_cells(lat, lon, cell_km=CELL_KM, shift_km=0.0):
+    """Номер пространственной ячейки cell_km × cell_km для каждой точки.
+
+    shift_km сдвигает сетку по обеим осям. Сдвиг на полячейки режет город на другие блоки —
+    так получается второе, независимое от первого пространственное разбиение.
+    """
+    i = np.floor((np.asarray(lat) * 110.57 + shift_km) / cell_km).astype(int)
+    k = np.floor((np.asarray(lon) * 111.32 * np.cos(np.radians(LAT0)) + shift_km) / cell_km).astype(int)
     return np.array([f"{a}_{b}" for a, b in zip(i, k)])
 
 
 def spatial_splits(cells, n_splits=5, seed=SEED):
-    """Пространственные фолды: ячейка целиком попадает в один фолд; размеры фолдов выравниваются."""
+    """Пространственные фолды: ячейка целиком попадает в один фолд; размеры фолдов выравниваются.
+
+    Ячейки раскладываются по убыванию размера в наименее заполненный фолд, поэтому seed влияет только на порядок
+    ячеек одинакового размера и разбиение почти не меняет. Другое разбиение даёт другая сетка: spatial_cells(shift_km=...).
+    """
     rng = np.random.default_rng(seed)
     uniq, counts = np.unique(cells, return_counts=True)
     order = rng.permutation(len(uniq))
@@ -49,6 +57,23 @@ def spatial_splits(cells, n_splits=5, seed=SEED):
         load[f] += counts[g]
     fold = np.array([fold_of[c] for c in cells])
     return [(np.where(fold != f)[0], np.where(fold == f)[0]) for f in range(n_splits)]
+
+
+def split_agreement(splits_a, splits_b):
+    """Доля объектов, попавших в один и тот же фолд в двух разбиениях (номера фолдов сопоставлены наилучшим образом).
+
+    1,0 — разбиения совпадают; для пяти равных независимых фолдов ожидается около 0,2–0,3.
+    """
+    n = sum(len(te) for _, te in splits_a)
+    fa, fb = np.zeros(n, int), np.zeros(n, int)
+    for f, (_, te) in enumerate(splits_a):
+        fa[te] = f
+    for f, (_, te) in enumerate(splits_b):
+        fb[te] = f
+    table = np.zeros((len(splits_a), len(splits_b)), int)
+    np.add.at(table, (fa, fb), 1)
+    rows, cols = optimize.linear_sum_assignment(-table)
+    return float(table[rows, cols].sum() / n)
 
 
 def group_splits(groups):

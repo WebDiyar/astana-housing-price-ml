@@ -15,10 +15,10 @@
  "parallel_processes_default": 5,
  "platform": "macOS-26.5.1-arm64-arm-64bit-Mach-O",
  "machine": "arm64",
- "run_date": "2026-11-26",
+ "run_date": "2026-11-27",
  "not_available": {
   "xgboost": "установлен, но не загружается: в системе нет libomp.dylib",
   "lightgbm": "установлен, но не загружается: в системе нет libomp.dylib"
  },
- "cache_fingerprint": "89b98dd00d"
+ "cache_fingerprint": "8f9de992e9"
 }

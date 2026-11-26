@@ -93,6 +93,13 @@ class SpatialFolds(unittest.TestCase):
         self.assertTrue((seen == 1).all())
         sizes = [len(te) for _, te in splits]
         self.assertLess(max(sizes) - min(sizes), 0.1 * len(lat))
+        # сдвинутая на полячейки сетка даёт другое разбиение, и в нём ячейки тоже не делятся между фолдами
+        cells2 = V.spatial_cells(lat, lon, shift_km=V.CELL_KM / 2)
+        splits2 = V.spatial_splits(cells2, 5)
+        for tr, te in splits2:
+            self.assertFalse(set(cells2[tr]) & set(cells2[te]))
+        self.assertEqual(V.split_agreement(splits, splits), 1.0)
+        self.assertLess(V.split_agreement(splits, splits2), 0.7)
 
 
 if __name__ == "__main__":

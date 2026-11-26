@@ -30,7 +30,7 @@
  "area_median": 63.1,
  "year_median": 2021.0,
  "district_ppm2_max_to_min": 1.5679285714285716,
- "geo_features_time_s": 2.4116940420062747,
+ "geo_features_time_s": 2.1283241249911953,
  "center_distance": {
   "spearman_rho_ppm2": -0.49313282265196495,
   "spearman_p": 0.0,
@@ -70,6 +70,9 @@
   "spatial_cells": 69,
   "spatial_folds": 5,
   "spatial_folds_D_vs_E": 10,
+  "spatial_shift_km": 1.0,
+  "spatial_cells_shifted": 72,
+  "spatial2_same_fold_share_%": 26.178946584221112,
   "spatial_fold_test_min": 2684,
   "spatial_fold_test_max": 2685,
   "lodo_folds": 6,

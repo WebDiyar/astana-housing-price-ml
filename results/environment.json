@@ -20,5 +20,5 @@
   "xgboost": "установлен, но не загружается: в системе нет libomp.dylib",
   "lightgbm": "установлен, но не загружается: в системе нет libomp.dylib"
  },
- "cache_fingerprint": "8f9de992e9"
+ "cache_fingerprint": "95944c8fe6"
 }

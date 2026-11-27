@@ -4,7 +4,7 @@
  "failed": 0,
  "errors": 0,
  "skipped": 0,
- "time_s": 11.8,
+ "time_s": 11.4,
  "per_module": {
   "test_cleaning": 14,
   "test_features": 11,

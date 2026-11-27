@@ -66,7 +66,7 @@ class Reproducibility(unittest.TestCase):
         self.assertTrue(all(np.array_equal(x[1], z[1]) for x, z in zip(s1, s2)))
 
     def test_models_beat_shuffled_target(self):
-        """Проверка на утечку: при перемешанной цене модель не должна ничего «угадывать»."""
+        """Проверка процедуры оценки: на перемешанных ценах модель не должна ничего «угадывать», на настоящих — должна."""
         y_perm = np.random.default_rng(C.SEED).permutation(self.y[self.tr])
         m = PriceModel("hgb", F.FEATURE_SETS["E"], FAST["hgb"]).fit(self.data.iloc[self.tr], y_perm)
         self.assertLess(metrics(self.y[self.te], m.predict(self.data.iloc[self.te]))["R2_log"], 0.05)

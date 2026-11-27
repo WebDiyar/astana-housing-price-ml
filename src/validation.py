@@ -33,7 +33,7 @@ def spatial_cells(lat, lon, cell_km=CELL_KM, shift_km=0.0):
     """Номер пространственной ячейки cell_km × cell_km для каждой точки.
 
     shift_km сдвигает сетку по обеим осям. Сдвиг на полячейки режет город на другие блоки —
-    так получается второе, независимое от первого пространственное разбиение.
+    так получается второе пространственное разбиение, отличное от первого.
     """
     i = np.floor((np.asarray(lat) * 110.57 + shift_km) / cell_km).astype(int)
     k = np.floor((np.asarray(lon) * 111.32 * np.cos(np.radians(LAT0)) + shift_km) / cell_km).astype(int)
